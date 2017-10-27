@@ -18,11 +18,34 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+  
+    <!-- https://mvnrepository.com/artifact/org.sonarsource.sonarqube/sonar-plugin-api -->
+<dependency>
+    <groupId>org.sonarsource.sonarqube</groupId>
+    <artifactId>sonar-plugin-api</artifactId>
+    <version>6.6</version>
+</dependency>
+
+    
   </dependencies>
+  
+  <profiles>
+<profile>
+<id>sonar</id>
+<activation>
+<activeByDefault>true</activeByDefault>
+</activation>
+<properties>
+<!-- Optional URL to server. Default value is http://localhost:9000 -->
+<sonar.host.url>
+http://localhost:6060
+</sonar.host.url>
+</properties>
+</profile>
+</profiles>
   <build>
-    <finalName>peoplemanagement</finalName>
-     <plugins>
-  <plugin>
+  <plugins>
+    <plugin>
   <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         
